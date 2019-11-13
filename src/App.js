@@ -7,7 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: 'quote'
+      quote: 'quote',
+      author: 'author'
     };
   };
 
@@ -21,19 +22,21 @@ class App extends Component {
         <div className='container'>
           <div className='row'>
             <div className='col text-center'>
-              App
-              <div id='quote-box'>
+              <br />
+              <div className='card mx-auto' id='quote-box' style={{ width: '60%', padding: '15px' }}>
                 <div id='text'>
-                  {this.state.quote}
+                  "{this.state.quote}"
                 </div>
                 <br />
                 <div id='author'>
-
+                  - "{this.state.author}"
                 </div>
                 <br />
-                <button onClick={this.getNewQuote} id='new-quote' className='btn btn-danger'>New Quote</button>
+                <button type='button' className='btn btn-danger' id='new-quote' onClick={this.getNewQuote}>New Quote</button>
                 <br />
-                <a href='https://twitter.com/' id='tweet-quote'>Tweet Quote</a>
+                <a href='https://twitter.com/intent/tweet/' target='_blank' rel='noopener noreferrer' id='tweet-quote'>
+                  Tweet Quote
+                </a>
               </div>
             </div>
           </div>
