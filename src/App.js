@@ -7,13 +7,31 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: 'quote',
-      author: 'author'
+      quote: '',
+      author: ''
     };
   };
 
   getNewQuote = () => {
-    console.log('get new quote');
+    axios.get('https://api.quotable.io/random')
+      .then(res => {
+        this.setState(() => {
+          return { quote: res.data.content, author: res.data.author }
+        });
+      }).catch(err => {
+        console.log(err);
+      });
+  };
+
+  componentDidMount = () => {
+    axios.get('https://api.quotable.io/random')
+      .then(res => {
+        this.setState(() => {
+          return { quote: res.data.content, author: res.data.author }
+        });
+      }).catch(err => {
+        console.log(err);
+      });
   };
 
   render = () => {
