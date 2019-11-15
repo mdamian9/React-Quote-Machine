@@ -9,7 +9,8 @@ class App extends Component {
     this.state = {
       quote: '',
       author: ''
-    };
+    }
+    this.getNewQuote = this.getNewQuote.bind(this);
   };
 
   getNewQuote = () => {
@@ -40,14 +41,18 @@ class App extends Component {
         <div className='container'>
           <div className='row'>
             <div className='col text-center'>
-              <br />
-              <div className='card mx-auto' id='quote-box' style={{ width: '60%', padding: '15px' }}>
+              <div className='card mx-auto' id='quote-box' style={{ width: '60%', padding: '15px', marginTop: '20%' }}>
                 <div id='text'>
-                  "{this.state.quote}"
+                  <h5>
+                    <i>
+                      "{this.state.quote}"
+                  </i>
+                  </h5>
                 </div>
-                <br />
                 <div id='author'>
-                  - "{this.state.author}"
+                  <h6>
+                    - {this.state.author}
+                  </h6>
                 </div>
                 <br />
                 <button type='button' className='btn btn-danger' id='new-quote' onClick={this.getNewQuote}>New Quote</button>
